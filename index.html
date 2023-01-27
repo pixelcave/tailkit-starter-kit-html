@@ -14,9 +14,6 @@
   <!-- Inter web font from Bunny.net (GDPR compliant) -->
   <link href="https://fonts.bunny.net/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- Alpine.js to test out Tailkit’s Alpine JS based components -->
-  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
   <!-- Tailwind CSS Play CDN (mostly for development/testing purposes) -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
 
@@ -117,6 +114,16 @@
       ],
     }
   </script>
+
+  <!-- Alpine.js to test out Tailkit’s Alpine JS based components -->
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Alpine.js (x-cloak - https://alpinejs.dev/directives/cloak) -->
+  <style>
+    [x-cloak] {
+      display: none !important;
+    }
+  </style>
 </head>
 
 <body>
