@@ -16,49 +16,42 @@
   <link href="https://fonts.bunny.net/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS Play CDN (mostly for development/testing purposes) -->
-  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 
-  <!-- Tailkit (Tailwind CSS v3 Configuration) -->
-  <script>
-    const defaultTheme = tailwind.defaultTheme;
+  <!-- Tailkit (Tailwind CSS v4 Configuration) -->
+  <style type="text/tailwindcss">
+    /* Plugins */
+    /*
+      Note: Some Tailkit components may not display correctly in this
+      playground starter kit as the Tailwind CSS v4 Play CDN currently
+      lacks forms and typography plugin support at the moment.
+    */
+    /* @plugin '@tailwindcss/forms';
+    @plugin '@tailwindcss/typography'; */
 
-    tailwind.config = {
-      darkMode: "selector",
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: [
-              "Inter",
-              ...defaultTheme.fontFamily.sans,
-            ],
-          },
-          maxWidth: {
-            "8xl": "90rem",
-            "9xl": "105rem",
-            "10xl": "120rem",
-          },
-          zIndex: {
-            1: "1",
-            60: "60",
-            70: "70",
-            80: "80",
-            90: "90",
-            100: "100",
-          },
-          keyframes: {
-            "spin-slow": {
-              "100%": {
-                transform: "rotate(-360deg)",
-              },
-            },
-          },
-          animation: {
-            "spin-slow": "spin-slow 8s linear infinite",
-          },
-        },
-      },
-    };
-  </script>
+    /* Class based dark mode */
+    @variant dark (&:where(.dark, .dark *));
+
+    /* Tailkit configuration */
+    @theme {
+      /* Fonts */
+      --default-font-family: "Inter";
+
+      /* Spacing */
+      --spacing-8xl: 90rem;
+      --spacing-9xl: 105rem;
+      --spacing-10xl: 120rem;
+
+      /* Animations */
+      --animate-spin-slow: spin-slow 8s linear infinite;
+
+      @keyframes spin-slow {
+        100% {
+          transform: rotate(-360deg);
+        }
+      }
+    }
+  </style>
 
   <!-- Alpine.js to test out Tailkit’s Alpine JS based components (+ Focus plugin) -->
   <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
@@ -136,7 +129,7 @@
       <div>
         <a
           href="https://pixelcave.com"
-          class="group mb-2 inline-flex items-center gap-1 rounded border bg-gray-200/50 px-1.5 py-1 text-sm font-semibold leading-4 text-gray-700 transition hover:border-rose-100 hover:bg-rose-100 hover:text-rose-700 active:border-gray-200 active:bg-gray-200/50 active:text-gray-700 dark:border-gray-700 dark:bg-transparent dark:text-gray-300 dark:hover:border-rose-900 dark:hover:bg-rose-800 dark:hover:text-rose-100 dark:active:border-gray-700 dark:active:bg-gray-700/50 dark:active:text-gray-300"
+          class="group mb-2 inline-flex items-center gap-1 rounded border border-gray-200 bg-gray-200/50 px-1.5 py-1 text-sm font-semibold leading-4 text-gray-700 transition hover:border-rose-100 hover:bg-rose-100 hover:text-rose-700 active:border-gray-200 active:bg-gray-200/50 active:text-gray-700 dark:border-gray-700 dark:bg-transparent dark:text-gray-300 dark:hover:border-rose-900 dark:hover:bg-rose-800 dark:hover:text-rose-100 dark:active:border-gray-700 dark:active:bg-gray-700/50 dark:active:text-gray-300"
         >
           <span>Crafted with</span>
           <svg
@@ -220,6 +213,9 @@
           </a>
         </div>
       </div>
+      <p class="text-xs/relaxed font-medium mx-auto max-w-xl text-gray-600 dark:text-gray-400">
+        <strong>Note:</strong> Some Tailkit components may not display correctly in this playground starter kit as the Tailwind CSS v4 Play CDN currently lacks forms and typography plugin support at the moment.
+      </p>
     </div>
   </div>
 
